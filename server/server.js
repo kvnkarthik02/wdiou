@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const auth = require('./routes/auth');
 require('dotenv').config();
 const app = express();
 app.use(cors());
-app.use(express.json());    
+// app.use(express.json());  
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }))  
 app.use('/auth', auth);
 
 
@@ -12,7 +15,7 @@ const mongoose = require('mongoose');
 require('dotenv').config(); 
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, { 
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
