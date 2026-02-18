@@ -1,20 +1,35 @@
-import './App.css';
-import { useEffect, useState } from 'react';
-
+import React from 'react'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import Login from './components/Signin'
+import Register from './components/Register'
 function App() {
-  const [message, setMessage] = useState('');
-  useEffect(()=> {
-    fetch('http://localhost:5000')
-    .then(res=> res.text())
-    .then(data => setMessage(data))
-  },[]);
-
   return (
-    <div>
-      <h1>Splitwise Clone</h1>
-      <p>Backend says: {message}</p>
-    </div>
-  );
+    <Router>
+      <div className="App">
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+          <div className="container">
+            <Link className="navbar-brand" to={'/sign-in'}>wdiou?</Link>
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item"><Link className="nav-link" to={'/sign-in'}>Login</Link></li>
+                <li className="nav-item"><Link className="nav-link" to={'/sign-up'}>Register</Link></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+            <Routes>
+              <Route exact path="/" element={<App />} />
+              <Route path="/sign-in" element={<Login />} />
+              <Route path="/sign-up" element={<Register />} />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </Router>
+  )
 }
-
-export default App;
+export default App 
