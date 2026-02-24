@@ -2,8 +2,9 @@ import React from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom'
-import Login from './components/Signin'
+import Signin from './components/Signin'
 import Register from './components/Register'
+import UserDash from './components/UserDash'
 function App() {
   return (
     <Router>
@@ -23,8 +24,9 @@ function App() {
           <div className="auth-inner">
             <Routes>
               <Route path="/" element={<Navigate to="/sign-in" replace />} />
-              <Route path="/sign-in" element={<Login />} />
-              <Route path="/sign-up" element={<Register />} />
+              <Route path="/sign-in" element={<Signin />} />
+              <Route path="/register" element={<Register />} />
+              <Route path='/home' element={<UserDash />} />
             </Routes>
           </div>
         </div>
