@@ -2,9 +2,8 @@
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
 import api from '../api';
-const EmailValidation = require('emailvalid')
 
-export default class Login extends Component {
+export default class Signin extends Component {
     constructor(props) {
         super(props);
         this.state = {
