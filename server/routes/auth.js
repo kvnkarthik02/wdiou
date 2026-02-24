@@ -30,7 +30,7 @@ router.post('/register', async(req,res) =>{
     }
 });
 
-router.get('/signin', async(req,res) => {
+router.post('/signin', async(req,res) => {
     try{
         //read request body
         const {email, password} = req.body;
