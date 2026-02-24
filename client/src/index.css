@@ -42,6 +42,7 @@ html,
   justify-content: center;
   flex-direction: column;
   text-align: left;
+  padding-top: 80px; 
 }
 
 .auth-inner {

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom'
 import Login from './components/Signin'
 import Register from './components/Register'
 function App() {
@@ -13,7 +13,7 @@ function App() {
             <Link className="navbar-brand" to={'/sign-in'}>wdiou?</Link>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item"><Link className="nav-link" to={'/sign-in'}>Login</Link></li>
+                <li className="nav-item"><Link className="nav-link" to={'/sign-in'}>Sign In</Link></li>
                 <li className="nav-item"><Link className="nav-link" to={'/sign-up'}>Register</Link></li>
               </ul>
             </div>
@@ -22,7 +22,7 @@ function App() {
         <div className="auth-wrapper">
           <div className="auth-inner">
             <Routes>
-              <Route exact path="/" element={<App />} />
+              <Route path="/" element={<Navigate to="/sign-in" replace />} />
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<Register />} />
             </Routes>
@@ -32,4 +32,4 @@ function App() {
     </Router>
   )
 }
-export default App 
+export default App
